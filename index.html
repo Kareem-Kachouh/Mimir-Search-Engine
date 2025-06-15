@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimir - Wisdom Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+   <!-- The Mimir header and logo -->
+    <div class="wrapper">
+        
+        <header class="mimir-header">
+            <div class="rune-decoration">ᛗ</div>
+            <h1>Mimir</h1>
+            <div class="rune-decoration">ᛁ</div>
+        </header>
+        
+        <!--The Search bar with its quotes-->
+        <div class="search-container">
+    
+            <div class="tagline">The All-Seeing Search</div>
+            
+            <form id="searchForm" class="mimir-form">
+    
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Seek wisdom..." autocomplete="off">
+                    <button type="submit" class="mimir-button">
+                        <span>Ask</span>
+                    </button>
+    
+                </div>
+                
+                <!--The search results-->
+                <div class="search-filters">
+    
+                    <div class="filter-group">
+                        <input type="checkbox" id="exactMatch">
+                        <label for="exactMatch">Exact match</label>
+                    </div>
+    
+                    <div class="filter-group">
+                        <input type="checkbox" id="recentFirst">
+                        <label for="recentFirst">Newest first</label>
+                    </div>
+    
+                    <div class="filter-group">
+                        <input type="checkbox" id="includeWikipedia" checked>
+                        <label for="includeWikipedia">Include Wikipedia</label>
+                    </div>
+    
+                </div>
+                
+                <!--The suggestions for the search bar-->
+                <div id="suggestions" class="suggestions-container"></div>
+    
+            </form>
+            
+            <div class="wisdom-quote">
+                "He who searches with wisdom shall find"
+            </div>
+    
+        </div>
+        
+        <div id="results" class="results-container"></div>
+        
+        <footer class="mimir-footer">
+    
+            <div class="rune-row">ᛗᛁᛗᛁᚱ</div>
+            <p>Knowledge from the Well of Wisdom</p>
+            <p>Kareem Kachouh - Hadi Kassem - Mohammad Issa - Saria Olalabi</p>
+    
+        </footer>
+    
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+/* Mimir Search Engine CSS */
+/* Base styles */
+:root {
+    --primary-color: #3a2e26;
+    --secondary-color: #8b5a2b;
+    --accent-color: #d4af37;
+    --text-light: #f5f5f5;
+    --text-dark: #333;
+    --bg-gradient: linear-gradient(135deg, #2c3e50 0%, #4a6b8a 100%);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--text-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.mimir-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    position: relative;
+}
+
+.mimir-header h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin: 0 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.rune-decoration {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+.tagline {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 30px;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+.mimir-form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+}
+
+.search-box {
+    display: flex;
+    position: relative;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#searchInput {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    outline: none;
+}
+
+#searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.mimir-button {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mimir-button:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.rune-symbol {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.wisdom-quote {
+    color: var(--accent-color);
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Results styling */
+
+.results-container {
+    margin-top: 40px;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.search-result {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid var(--secondary-color);
+    padding: 20px;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s ease;
+}
+
+.search-result:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.search-result h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+.search-result .result-url {
+    color: #7fb4ca;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    word-break: break-all;
+}
+
+.search-result .result-snippet {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.highlight {
+    background-color: rgba(212, 175, 55, 0.3);
+    font-weight: bold;
+    padding: 0 2px;
+}
+
+/* Footer */
+.mimir-footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(139, 90, 43, 0.3);
+}
+
+.rune-row {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.mimir-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Notifications */
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.notification.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.no-results {
+    text-align: center;
+    padding: 30px;
+    color: var(--accent-color);
+    grid-column: 1 / -1;
+}
+
+/* Filters */
+
+.search-filters {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-group label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .results-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .mimir-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .search-box {
+        flex-direction: column;
+        border-radius: 10px;
+    }
+    
+    
+    .mimir-button {
+        justify-content: center;
+        padding: 10px;
+    }
+}
+
+/* Rune animations */
+@keyframes rune-glow {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; text-shadow: 0 0 10px var(--accent-color); }
+    100% { opacity: 0.6; }
+}
+
+.rune-decoration {
+    animation: rune-glow 3s infinite;
+}
+
+.rune-decoration:first-child {
+    animation-delay: 0.5s;
+}
+
+.rune-decoration:last-child {
+    animation-delay: 1s;
+}
+
+.tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(139, 90, 43, 0.3);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.category-label {
+    display: inline-block;
+    background: rgba(66, 133, 244, 0.2);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    color: #7fb4ca;
+}
+
+/* end of rune styles */
+
+/* Wikipedia styles */
+.wiki-result {
+    border-left: 3px solid #36c;
+    background: rgba(54, 102, 204, 0.05);
+}
+
+.wiki-result:hover {
+    background: rgba(54, 102, 204, 0.1);
+}
+
+.wiki-label {
+    display: inline-block;
+    background: linear-gradient(white, var(--secondary-color));
+    font-family: arial, sans-serif;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.loading {
+    text-align: center;
+    padding: 30px;
+    color: var(--accent-color);
+    font-style: italic;
+    grid-column: 1 / -1;
+}
+
+/* Source toggle */
+.source-toggle {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.source-toggle label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
